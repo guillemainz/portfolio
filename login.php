@@ -3,13 +3,20 @@
 
 <!DOCTYPE html>
 <?php
+
 session_start();
+
+// Unset all of the session variables.
+$_SESSION = array();
+session_destroy();
+
+
 include_once("php/code.php");
 
 $user = new Users; //créer un nouvel utilisateur vide, à qui on va appliquer plus tard la fonction connect
 if(isset($_SESSION["account"]["id"]))  //si l'account et l'id existent
 {
-    header('Location: /'); //ca ressemble vaguement à un chemin d'accès de fichier, probablement une redirection vers la racine (index)
+    header('Location: index.php'); //ca ressemble vaguement à un chemin d'accès de fichier, probablement une redirection vers la racine (index)
 }
 if(isset($_POST["submit"])) //si on a eu une requête de type POST avec la valeur submit, cad si on a appuyé le bouton envoyer
 {
@@ -18,6 +25,8 @@ if(isset($_POST["submit"])) //si on a eu une requête de type POST avec la valeu
         if($_POST['uname'] != NULL && $_POST['psw'] != NULL) //si le username et le password ne sont pas nuls
         {
             $user->connect($_POST["uname"], $_POST["psw"]); //appliquer la fonction connect avec ces paramètres à la variable user créée au début de la session
+            header('Location: index.php');
+            exit();
         }
         else
         {
@@ -33,9 +42,21 @@ if(isset($_POST["submit"])) //si on a eu une requête de type POST avec la valeu
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login</title>
 </head>
+
+<header>
+    <h1>Portfolio de Zoé</h1>
+</header>
+
+<nav>
+  <a href="index.php">Accueil</a> |
+  <a href="Assets/projetsMMI.html">Projet</a> |
+</nav> 
+
 <body>
+
+    <h2>Login</h2> <br/>
 
     <form action="login.php" method="post"> <!-- formulaire qui appelle la page login.php, cad la page où on est actuellement; donc le formulaire rappelle le php ci dessus, mais cette fois en lui passant en paramètre le contenu du formulaire -->
 
@@ -50,4 +71,11 @@ if(isset($_POST["submit"])) //si on a eu une requête de type POST avec la valeu
     </div>
     </form>
 </body>
+
+
+<footer>
+    <h4>Portfolio de Zoé</h4>
+    <p>Zoé Guillemain | MMI20 | Projet PHP</p>
+</footer>
+
 </html>
