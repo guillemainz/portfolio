@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-
-
 <?php
 session_start(); //démarre une nouvelle session
 include_once("php/code.php");
@@ -9,26 +7,26 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 ?>
 
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier Projets</title>
-</head>
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Modifier Projets</title>
+	</head>
 
-<?php include_once("header.php"); 
+	<?php include_once("header.php"); 
 
-$idp=" ";
-if (isset($_GET["idp"])) {
-	$idp = $_GET["idp"];
-}
-else if (isset($_POST["idp"])) {
-	$idp=$_POST["idp"]; //cf l'input caché plus bas
-}
-else {
-	echo "Pas d'id de projet défini";
-	//header('Location: index.php');
-    //exit();
-}
+	$idp=" ";
+	if (isset($_GET["idp"])) {
+		$idp = $_GET["idp"];
+	}
+	else if (isset($_POST["idp"])) {
+		$idp=$_POST["idp"]; //cf l'input caché plus bas
+	}
+	else {
+		echo "Pas d'id de projet défini";
+		//header('Location: index.php');
+	    //exit();
+	}
 
 
 $request="SELECT * FROM Projets WHERE id='".$idp."'";

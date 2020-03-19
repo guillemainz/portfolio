@@ -48,7 +48,7 @@ $user = new Users;
             <?php if(isset($_SESSION["account"]["username"]) && $_SESSION["account"]["username"]==$etudiant['username']) //si un utilisateur est connecté ET que cet utilisateur correspond à l'étudiant présenté dans cette page
     		{ 
     			$adresse="modifprojet.php?idp=".$projets['id']; ?>
-    			<a href= <?php echo $adresse ?> >Modifier ce projet</a>
+    			<a href= <?php echo $adresse ?> >Modifier ce projet</a> | 
         	<?php  
     		}
 			?>
@@ -56,8 +56,14 @@ $user = new Users;
     	} 
     	?>
 
-    	
-   
+    	<?php if(isset($_SESSION["account"]["username"]) && $_SESSION["account"]["username"]==$etudiant['username']) //si un utilisateur est connecté ET que cet utilisateur correspond à l'étudiant présenté dans cette page
+    		{ 
+    			$adresse="nouveauprojet.php?ide=".$etudiant['id']; ?>
+    			<a href= <?php echo $adresse ?> >Ajouter un projet</a>
+        	<?php  
+    		}
+			?>
+
         
 	</div>
 
