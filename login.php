@@ -45,14 +45,7 @@ if(isset($_POST["submit"])) //si on a eu une requête de type POST avec la valeu
     <title>Login</title>
 </head>
 
-<header>
-    <h1>Portfolio de Zoé</h1>
-</header>
-
-<nav>
-  <a href="index.php">Accueil</a> |
-  <a href="Assets/projetsMMI.html">Projet</a> |
-</nav> 
+<?php include_once("header.php"); ?>
 
 <body>
 
@@ -72,10 +65,6 @@ if(isset($_POST["submit"])) //si on a eu une requête de type POST avec la valeu
     </form>
 </body>
 
-
-<footer>
-    <h4>Portfolio de Zoé</h4>
-    <p>Zoé Guillemain | MMI20 | Projet PHP</p>
-</footer>
+<?php include_once("footer.php"); ?>
 
 </html>

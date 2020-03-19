@@ -62,8 +62,6 @@ class Users { //définition de la classe Users qui contient des fonctions
    }
 
    function deconnexion(){
-        echo("Deconnexion");
-        //session_reset();
         session_destroy();
         header('Location: /index.php');
         exit();
