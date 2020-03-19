@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
 session_start(); //démarre une nouvelle session
 include_once("php/code.php");
@@ -16,35 +14,26 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 		$idetudiant = $_SESSION["account"]["id"];
 	}
 	else {
-		echo "Pas d'étudiant défini";
-		//header('Location: index.php');
-	    //exit();
+		header('Location: index.php');
+	    exit();
 	}
 ?>
 
-<html lang="fr">
-	<head>
-	    <meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>Ajouter Projet</title>
-	</head>
+<?php include_once("header.php"); ?>
 
-	<?php include_once("header.php"); ?>
+<h2>Nouveau projet: </h2>
 
-	<body>
-		<form action="nouveauprojet.php" method="post">
-			<div>
-				<h2>Nouveau projet: </h2>
-
-				<label for="titre"><b>Titre: </b></label>
-				<input type="text" placeholder="Tapez du texte" name="titre" required size="100">
-				<br/>
-				<label for="contenu"><b>Contenu: </b></label>
-				<input type="text" placeholder="Tapez du texte" name="contenu" required size="100"> 
-				<button type="submit" name="submit" value="OK">Envoyer</button>
-			</div>
-		</form>
-	</body>
+<form action="nouveauprojet.php" method="post"> 
+    <div class="form-group">
+        <label for="titre">Titre</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrez du texte" name="titre" required>
+    </div>
+    <div class="form-group">
+        <label for="contenu">Contenu</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Entrez du texte" name="contenu" required>
+    </div>
+    <button type="submit" name="submit" value="OK" class="btn btn-primary">Envoyer</button>
+</form>
 
 
 
@@ -65,7 +54,8 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 
 					$insertion=$db->prepare($requete);
 					$insertion->execute([$titre, $contenu, $idetudiant]);
-					echo "New record created successfully";
+					header('Location: index.php');
+	    			exit();
 				}
 				catch(PDOException $e){
 			    	echo $requete . "<br>" . $e->getMessage();
@@ -85,5 +75,3 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 	}
 
 ?>
-
-</html>

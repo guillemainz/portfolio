@@ -1,7 +1,5 @@
 <!-- Ceci est la page de login à laquelle doit renvoyer le bouton login de la page index -->
 
-
-<!DOCTYPE html>
 <?php
 
 session_start();
@@ -38,33 +36,45 @@ if(isset($_POST["submit"])) //si on a eu une requête de type POST avec la valeu
 
 <!-- Ce bout de code php devrait logiquement être APRES l'HTML -->
 
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
 
 <?php include_once("header.php"); ?>
 
-<body>
 
-    <h2>Login</h2> <br/>
 
-    <form action="login.php" method="post"> <!-- formulaire qui appelle la page login.php, cad la page où on est actuellement; donc le formulaire rappelle le php ci dessus, mais cette fois en lui passant en paramètre le contenu du formulaire -->
+<h2>Login</h2> <br/>
 
-    <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required> 
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-
-        <button type="submit" name="submit" value="OK">Login</button> <!-- Bouton submit avec la valeur OK -->
+<form action="login.php" method="post"> <!-- formulaire qui appelle la page login.php, cad la page où on est actuellement; donc le formulaire rappelle le php ci dessus, mais cette fois en lui passant en paramètre le contenu du formulaire -->
+    <div class="form-group">
+        <label for="uname">Username</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Username" name="uname" required>
     </div>
-    </form>
-</body>
+    <div class="form-group">
+        <label for="psw">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" name="psw" required>
+    </div>
+    <button type="submit" name="submit" value="OK" class="btn btn-primary">Login</button>
+</form>
+
+
+
+
+<!--
+<form action="login.php" method="post"> 
+
+<div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required> 
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" name="submit" value="OK">Login</button>
+</div>
+</form>
+
+-->
+
 
 <?php include_once("footer.php"); ?>
 
-</html>

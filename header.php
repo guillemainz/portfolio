@@ -17,27 +17,46 @@ $user = new Users; //créé automatiquement un nouvel objet (vide) de classe use
 </head>
 
 
-<h1>Portfolios en ligne</h1>
+<body>
 
-<div>
-    Bonjour <?php if(isset($_SESSION["account"]["username"])) //si les éléments "account" et "username" du tableau SESSION ont une valeur alors
-    {
-        echo($_SESSION["account"]["username"]); //afficher l'account et le username à la suite de Bonjour
+<div class="container">
+<div class="row align-items-center">
+    <div class="col-lg-8">
+        <h1 class="row">Portfolios en ligne</h1>
 
-    }
-    else
-    {
-        echo "visiteur non connecté"; //sinon afficher "visiteur non connecté" à la suite de Bonjour
-        ?>
-        <button type="button" onclick=window.location.href='http://localhost/W17%20-%20PHP/login.php' >Se connecter</button> 
+    </div>
+
+    <div class="col-lg-4 text-right">
+        <?php if(isset($_SESSION["account"]["username"])) //si les éléments "account" et "username" du tableau SESSION ont une valeur alors
+        {
+            echo($_SESSION["account"]["username"]); //afficher l'account et le username à la suite de Bonjour
+            ?>
+            <button type="button" class="btn btn-secondary" onclick=window.location.href='login.php' >Déconnexion</button> 
         <?php
-    }
-    ?>
+        }
+        else
+        {
+            echo "non connecté"; //sinon afficher "visiteur non connecté" à la suite de Bonjour
+            ?>
+            <button type="button" class="btn btn-secondary" onclick=window.location.href='login.php' >Se connecter</button>     
+   
+        <?php
+        }
+        ?>
+
+    </div>
 </div>
 
-<nav>
-  <h3><a href="index.php">Accueil</a> | <a href="login.php">Login</a></h3>
-</nav> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item active"><a class="nav-link" href="index.php">Accueil</a> </li> 
+        <li class="nav-item active"> <a class="nav-link" href="login.php">Login</a></li>
+    </ul>
+  </div>
+</nav>
 
 
-</html>
+
+
