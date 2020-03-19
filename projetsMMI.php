@@ -1,6 +1,12 @@
-<?php require("php/database.php"); ?>
-
 <!DOCTYPE html>
+
+<?php
+session_start(); 
+include_once("php/code.php");
+require("php/database.php"); 
+$user = new Users; 
+?>
+
 <html>
 
 <head>
@@ -30,16 +36,29 @@
 		
         <?php 
         // Récupération des projet de l'étudiant
-		$reponse2 = $db->query('SELECT * FROM projets WHERE id='.$etudiant["id"]);
-        //$donnees2 = $reponse1->fetch();
+		$reponse = $db->query('SELECT * FROM projets WHERE id='.$etudiant["id"]);
+        //$projets = $reponse->fetch();
         
+		$adresse=" ";
+        while ($projets = $reponse->fetch()) {
+            ?>
+            <h3> <?php echo $projets['titre']; ?> </h3> <br/> 
+            <p> <?php echo $projets['contenu']; ?> <p> <br/> 
 
-        while ($projets = $reponse2->fetch()) {
-                    ?>
-                    <h3> <?php echo $projets['titre']; ?> </h3> <br/> 
-                    <p> <?php echo $projets['contenu']; ?> <p> <br/> 
-        <?php } ?>
+            <?php if(isset($_SESSION["account"]["username"]) && $_SESSION["account"]["username"]==$etudiant['username']) //si un utilisateur est connecté ET que cet utilisateur correspond à l'étudiant présenté dans cette page
+    		{ 
+    			$adresse="modifprojet.php?idp=".$projets['id']; ?>
+    			<a href= <?php echo $adresse ?> >Modifier ce projet</a>
+        	<?php  
+    		}
+			?>
+        <?php 
+    	} 
+    	?>
 
+    	
+   
+        
 	</div>
 
 </body>

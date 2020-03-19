@@ -68,16 +68,11 @@ $description=$resultat->fetch();
 	        }
 	        else
 	        {
-	            echo("Remplis le formulaire"); //sinon demander à remplir le formulaire
-	        }
+	            echo("Remplis le formulaire"); 
 		}
 	}
 ?>
 
-<!--
-	$_POST['ndescrip']
-	$etudiant
--->
 
 <?php include_once("footer.php"); ?>
 

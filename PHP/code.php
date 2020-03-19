@@ -40,8 +40,7 @@ class Users { //définition de la classe Users qui contient des fonctions
         //password_verify s'applique à l'objet user, vu qu'on est déjà dans la classe user il faut dire à la fonction qu'elle s'aplique à l'objet actuel
         {
             session_start(); //fonction existant déjà dans php
-            $_SESSION["account"] = ['id' => $user["id"],'username' => $user["username"] ]; //attribuer à la case account de cette session heeeeu y'a trop d'actions en même temps', ça veut dire quoi => ?
-
+            $_SESSION["account"] = ['id' => $user["id"],'username' => $user["username"] ]; 
             header('Location: http://localhost/W17%20-%20PHP/index.php');
             exit();
         }
