@@ -12,11 +12,8 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 	$titre=" ";
 	$contenu=" ";
 
-	if (isset($_GET["ide"])) {
-		$etudiant = $_GET["ide"];
-	}
-	else if (isset($_POST["ide"])) {
-		$etudiant=$_POST["ide"]; //cf l'input hidden dans le form
+	if (isset($_SESSION["account"]["id"])) {
+		$idetudiant = $_SESSION["account"]["id"];
 	}
 	else {
 		echo "Pas d'étudiant défini";
@@ -44,8 +41,6 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 				<br/>
 				<label for="contenu"><b>Contenu: </b></label>
 				<input type="text" placeholder="Tapez du texte" name="contenu" required size="100"> 
-
-				<input type="hidden"  name="ide" value="<?php echo $etudiant; ?>">
 				<button type="submit" name="submit" value="OK">Envoyer</button>
 			</div>
 		</form>
@@ -65,8 +60,11 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 				$contenu=$_POST['contenu'];
 
 				try {
-					$requete="INSERT INTO Projets (titre, contenu, user) VALUES ($titre, $contenu, $etudiant)";
-					$db->exec($requete);
+					$requete="INSERT INTO Projets (titre, contenu, user) VALUES (?,?,?)";
+					//$db->exec($requete);
+
+					$insertion=$db->prepare($requete);
+					$insertion->execute([$titre, $contenu, $idetudiant]);
 					echo "New record created successfully";
 				}
 				catch(PDOException $e){

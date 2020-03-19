@@ -13,14 +13,11 @@ $user = new Users; //créé automatiquement un nouvel objet (vide) de classe use
 	<meta charset="utf-8">
 	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 	<title>Header</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 
-<h1>Portfolio de Zoé</h1>
-
-<nav>
-  <h3><a href="index.php">Accueil</a> | <a href="projetsMMI.php">Projet</a></h3>
-</nav> 
+<h1>Portfolios en ligne</h1>
 
 <div>
     Bonjour <?php if(isset($_SESSION["account"]["username"])) //si les éléments "account" et "username" du tableau SESSION ont une valeur alors
@@ -36,7 +33,11 @@ $user = new Users; //créé automatiquement un nouvel objet (vide) de classe use
         <?php
     }
     ?>
-
 </div>
+
+<nav>
+  <h3><a href="index.php">Accueil</a> | <a href="login.php">Login</a></h3>
+</nav> 
+
 
 </html>

@@ -29,9 +29,16 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 	}
 
 
-$request="SELECT * FROM Projets WHERE id='".$idp."'";
-$resultat=$db->query($request);
-$projet=$resultat->fetch();
+//$request="SELECT * FROM Projets WHERE id='".$idp."'";
+//$resultat=$db->query($request);
+//$projet=$resultat->fetch();
+
+
+$request="SELECT * FROM Projets WHERE id=:projectid AND user=:userid";
+$resultat = $db->prepare($request);
+$resultat->execute(array(':projectid' => $idp, ':userid' => $_SESSION["account"]["id"]));
+$projet = $resultat->fetch();
+
 
 ?>
 
