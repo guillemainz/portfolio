@@ -38,7 +38,7 @@ $projet = $resultat->fetch();
 	</div>
 
 	<div>
-		<h2>Contenu actuel: </h2>
+		<h4>Contenu actuel: </h4>
 		<h3><?php echo $projet['titre'];?></h3><br/>
 		<p><?php echo $projet['contenu'];?></p><br/>
 	</div>
@@ -72,7 +72,8 @@ $projet = $resultat->fetch();
 	            $request="UPDATE Projets SET titre=?, contenu=? WHERE id=?"; //les ? c'est une mesure de sécurité pour éviter que le visiteur injecte du code
 	            $update=$db->prepare($request);
 	            $update->execute([$_POST['ntitre'], $_POST['ncontenu'], $idp]);
-	            header('Location: index.php ');
+	            //header('Location: index.php ');
+	            header('Location: projetsMMI.php?nom='.$_SESSION["account"]["username"]);
             	exit();
 	        }
 	        else

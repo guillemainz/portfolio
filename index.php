@@ -19,7 +19,8 @@ $user = new Users; //créé automatiquement un nouvel objet (vide) de classe use
     </div>
 
     <div class="row">
-        <p id="Presentation">Paragraphe de description du fonctionnement du site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed pellentesque libero, at ullamcorper leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent porta rhoncus nulla, et vestibulum diam tincidunt a. Mauris in leo in lacus semper iaculis eu ut lorem. Nam sodales sagittis lacus, ut sollicitudin eros vehicula eget. Pellentesque tempor porta dui sed elementum. Suspendisse quis dignissim metus. Curabitur dictum feugiat nisi, ac luctus nisi blandit commodo. Praesent vestibulum elit non blandit convallis. Donec lacinia mauris id justo facilisis congue. Nullam elementum ante nibh, eget aliquam nisl malesuada vitae. Etiam vel ornare eros.</p>
+        <p id="Presentation"> Bienvenue dans les portfolios en ligne de MMI! Vous pouvez ici voir les différents projets réalisés par nos étudiant. Cliquez sur un étudiant pour voir ses réalisations! <br/><br/> Si vous êtes étudiant, connectez vous via la page login pour pouvoir modifier votre contenu. <br/>(note à l'attention de Mr Judic: le mdp est identique au username) <br/><br/> <b>Bonne découverte!</b>
+        </p>
     </div>
 
     <div class="row">

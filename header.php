@@ -12,7 +12,7 @@ $user = new Users; //créé automatiquement un nouvel objet (vide) de classe use
 <head>
 	<meta charset="utf-8">
 	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
-	<title>Header</title>
+	<title>Portfolios MMI</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
@@ -22,7 +22,7 @@ $user = new Users; //créé automatiquement un nouvel objet (vide) de classe use
 <div class="container">
 <div class="row align-items-center">
     <div class="col-lg-8">
-        <h1 class="row">Portfolios en ligne</h1>
+        <h1 class="row">Portfolios MMI en ligne</h1>
 
     </div>
 

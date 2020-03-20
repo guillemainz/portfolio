@@ -2,7 +2,7 @@
 <hr/>
 <div class="row align-items-end">
     <div class="col-lg-6">
-        <h4>Portfolios en ligne</h4>
+        <h4>Portfolios MMI en ligne</h4>
     </div>
     <div class="col-lg-6 text-right">
         Zoé Guillemain | MMI20 | Projet PHP
