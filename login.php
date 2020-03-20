@@ -47,11 +47,11 @@ if(isset($_POST["submit"])) //si on a eu une requête de type POST avec la valeu
 <form action="login.php" method="post"> <!-- formulaire qui appelle la page login.php, cad la page où on est actuellement; donc le formulaire rappelle le php ci dessus, mais cette fois en lui passant en paramètre le contenu du formulaire -->
     <div class="form-group">
         <label for="uname">Username</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Username" name="uname" required>
+        <input type="text" class="form-control" placeholder="Enter Username" name="uname" required>
     </div>
     <div class="form-group">
         <label for="psw">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" name="psw" required>
+        <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
     </div>
     <button type="submit" name="submit" value="OK" class="btn btn-primary">Login</button>
 </form>

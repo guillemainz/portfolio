@@ -26,11 +26,12 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 <form action="nouveauprojet.php" method="post"> 
     <div class="form-group">
         <label for="titre">Titre</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrez du texte" name="titre" required>
+        <input type="text" class="form-control" placeholder="Entrez du texte" name="titre" required>
     </div>
     <div class="form-group">
         <label for="contenu">Contenu</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Entrez du texte" name="contenu" required>
+        
+        <textarea class="form-control" rows="5" name="contenu" placeholder="Entrez du texte" required> </textarea>
     </div>
     <button type="submit" name="submit" value="OK" class="btn btn-primary">Envoyer</button>
 </form>

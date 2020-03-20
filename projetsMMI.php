@@ -19,14 +19,15 @@ $user = new Users;
 
 
 <div>
-	<h2>Projets</h2>
-	<br/>
 	
 	<h2>Portfolio de <?php echo $etudiant['username'];?> </h2>
 	<div> 
 		<h3> <?php echo $etudiant['username'];?> </h3>
     	<p> <?php echo $etudiant['description'];?> </p>
 	</div>
+
+	<h2>Projets</h2>
+	<br/>
 
     
     <?php 
@@ -58,7 +59,8 @@ $user = new Users;
 	<?php if(isset($_SESSION["account"]["username"]) && $_SESSION["account"]["username"]==$etudiant['username']) //si un utilisateur est connecté ET que cet utilisateur correspond à l'étudiant présenté dans cette page
 		{ 
 		?>
-			<a href= "nouveauprojet.php" >Ajouter un projet</a>
+			<hr/>
+			<a href= "nouveauprojet.php" class="btn btn-secondary" >Ajouter un projet</a>
     	<?php  
 		}
 		?>

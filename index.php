@@ -38,7 +38,14 @@ $user = new Users; //créé automatiquement un nouvel objet (vide) de classe use
                             <p class="card-text"><?php echo $user["description"]; ?></p>
                             <?php $adresse="projetsMMI.php?nom=".$user['username']; ?>
                             <a href= <?php echo $adresse ?> class="btn btn-primary">Voir les projets</a>
-                            
+                            <?php 
+                            if(isset($_SESSION["account"]["username"])&&$_SESSION["account"]["username"]===$user['username']) //si les éléments "account" et "username" du tableau SESSION ont une valeur alors
+                            {
+                                ?>        
+                                <a href="modifdescrip.php" class="btn btn-secondary">Modifier votre description</a>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -46,17 +53,6 @@ $user = new Users; //créé automatiquement un nouvel objet (vide) de classe use
             }
         ?>
 
-
-    <?php 
-    $adresse=" ";
-    if(isset($_SESSION["account"]["username"])) //si les éléments "account" et "username" du tableau SESSION ont une valeur alors
-    {
-        $adresse="modifdescrip.php?nom=".$_SESSION["account"]["username"];
-        ?>        
-        <a href= <?php echo $adresse ?> class="btn btn-secondary">Modifier votre description</a>
-        <?php
-    }
-    ?>
 
 </div>
 

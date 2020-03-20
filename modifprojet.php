@@ -47,11 +47,11 @@ $projet = $resultat->fetch();
 	<form action="modifprojet.php" method="post"> <!-- formulaire qui appelle la page login.php, cad la page où on est actuellement; donc le formulaire rappelle le php ci dessus, mais cette fois en lui passant en paramètre le contenu du formulaire -->
 	    <div class="form-group">
 	        <label for="ntitre">Titre</label>
-	        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="<?php echo $projet['titre'];?>" name="ntitre" required>
+	        <input type="text" class="form-control" placeholder="<?php echo $projet['titre'];?>" name="ntitre" required>
 	    </div>
 	    <div class="form-group">
 	        <label for="ncontenu">Contenu</label>
-	        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="<?php echo $projet['contenu'];?>" name="ncontenu" required>
+	        <textarea class="form-control" rows="5" name="ncontenu" required> <?php echo $projet['contenu'];?> </textarea>
 	    </div>
 	    <input type="hidden"  name="idp" value="<?php echo $idp; ?>">
 	    <button type="submit" name="submit" value="OK" class="btn btn-primary">Envoyer</button>
@@ -72,7 +72,7 @@ $projet = $resultat->fetch();
 	            $request="UPDATE Projets SET titre=?, contenu=? WHERE id=?"; //les ? c'est une mesure de sécurité pour éviter que le visiteur injecte du code
 	            $update=$db->prepare($request);
 	            $update->execute([$_POST['ntitre'], $_POST['ncontenu'], $idp]);
-	            header('Location: index.php');
+	            header('Location: index.php ');
             	exit();
 	        }
 	        else

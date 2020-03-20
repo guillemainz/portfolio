@@ -1,4 +1,5 @@
 
+<hr/>
 <div class="row align-items-end">
     <div class="col-lg-6">
         <h4>Portfolios en ligne</h4>

@@ -9,11 +9,8 @@ require("php/database.php"); //ajoute au début le code du fichier database.php
 <?php include_once("header.php"); 
 
 $nom="";
-if (isset($_GET["nom"])) {
-	$nom = $_GET["nom"];
-}
-else if (isset($_POST["nom"])) {
-	$nom=$_POST["nom"];
+if (isset($_SESSION["account"]["username"])) {
+	$nom = $_SESSION["account"]["username"];
 }
 else {
 	header('Location: index.php');
@@ -41,22 +38,12 @@ $description=$resultat->fetch();
 
 	<form action="modifdescrip.php" method="post"> <!-- formulaire qui appelle la page login.php, cad la page où on est actuellement; donc le formulaire rappelle le php ci dessus, mais cette fois en lui passant en paramètre le contenu du formulaire -->
 		<div class="form-group">
-			<label for="ndescrip">Username</label>
-			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrez du texte" name="ndescrip" required>
+			<label for="ndescrip">Nouvelle description</label>
+			<textarea class="form-control" rows="5" id="ndescip" name="ndescrip"> <?php echo $description['description'];?> </textarea>
 		</div>
 	  	<button type="submit" name="submit" value="OK" class="btn btn-primary">Envoyer</button>
 	</form>
 
-<!--
-	<form action="modifdescrip.php" method="post">
-	<div>
-		<h2>Nouvelle description: </h2>
-		<input type="text" placeholder="Tapez du texte" name="ndescrip" required size="100"> 
-		<input type="hidden"  name="nom" value="<?php //echo $nom; ?>">
-		<button type="submit" name="submit" value="OK">Envoyer</button>
-	</div>
-	</form>
--->
 
 	<?php
 		if(isset($_POST["submit"]))
@@ -74,6 +61,7 @@ $description=$resultat->fetch();
 		        else
 		        {
 		            echo("Remplis le formulaire"); 
+				}
 			}
 		}
 	?>
